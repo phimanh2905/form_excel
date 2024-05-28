@@ -1,0 +1,103 @@
+<form class="m-4 w-[450px]" [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+  <div class="flex items-center gap-4 mb-2">
+    <label class="w-[105px]" for="itemno">Item No:</label>
+    <input
+      type="text"
+      class="input input-bordered w-full max-w-xs"
+      id="itemno"
+      formControlName="itemno"
+    />
+  </div>
+
+  <div class="flex items-center gap-4 mb-2">
+    <label class="w-[105px]" for="productname">Product Name:</label>
+    <input
+      type="text"
+      class="input input-bordered w-full max-w-xs"
+      id="productname"
+      formControlName="productname"
+    />
+  </div>
+
+  <div class="flex items-center gap-4 mb-2">
+    <label class="w-[105px]" for="shipper">Shipper:</label>
+    <textarea
+      class="textarea textarea-bordered w-full max-w-xs"
+      id="shipper"
+      formControlName="shipper"
+    ></textarea>
+  </div>
+
+  <div class="flex items-center gap-4 mb-2">
+    <label class="w-[105px]" for="shipperaddress">Address:</label>
+    <textarea
+      class="textarea textarea-bordered w-full max-w-xs"
+      id="shipperaddress"
+      formControlName="shipperaddress"
+    ></textarea>
+  </div>
+
+  <div class="flex items-center gap-4 mb-2">
+    <label class="w-[105px]" for="consignee">Consignee:</label>
+    <textarea
+      class="textarea textarea-bordered w-full max-w-xs"
+      id="consignee"
+      formControlName="consignee"
+    ></textarea>
+  </div>
+
+  <div class="flex items-center gap-4 mb-2">
+    <label class="w-[105px]" for="consigneeaddress">Address:</label>
+    <textarea
+      class="textarea textarea-bordered w-full max-w-xs"
+      id="consigneeaddress"
+      formControlName="consigneeaddress"
+    ></textarea>
+  </div>
+
+  <div class="flex items-center gap-4 mb-2">
+    <label class="w-[105px]" for="origin">Origin:</label>
+    <input
+      type="text"
+      class="input input-bordered w-full max-w-xs"
+      id="origin"
+      formControlName="origin"
+    />
+  </div>
+
+  <div class="flex items-center gap-4 mb-2">
+    <label class="w-[105px]" for="qty_pkg">QTY/PKG:</label>
+    <input
+      type="text"
+      class="input input-bordered w-full max-w-xs"
+      id="qty_pkg"
+      formControlName="qty_pkg"
+    />
+  </div>
+
+  <div class="flex items-center gap-4 mb-2">
+    <label class="w-[105px]" for="g_w">G/W:</label>
+    <input
+      type="text"
+      class="input input-bordered w-full max-w-xs"
+      id="g_w"
+      formControlName="g_w"
+    />
+  </div>
+
+  <div class="flex items-center gap-4 mb-2">
+    <label class="w-[105px]" for="pkgsize">PKG Size:</label>
+    <input
+      type="text"
+      class="input input-bordered w-full max-w-xs"
+      id="pkgsize"
+      formControlName="pkgsize"
+    />
+  </div>
+
+  <div class="flex justify-center">
+    <button class="btn btn-outline btn-success" type="submit">
+      Tạo file excel
+    </button>
+  </div>
+</form>
