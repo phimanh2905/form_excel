@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import {
   FormBuilder,
@@ -10,7 +11,7 @@ import * as XLSX from 'xlsx';
 @Component({
   selector: 'app-address-form',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './address-form.component.html',
   styleUrl: './address-form.component.scss',
 })
@@ -45,20 +46,34 @@ export class AddressFormComponent {
     pkgsize: 'PKG Size',
   };
 
-  ngOnInit(): void {}
+  keysTable: any;
+  valuesTable: any;
 
-  onSubmit(): void {
+  tables: any = [];
+
+  ngOnInit(): void {
+    this.keysTable = Object.keys(this.formLabelMapInput);
+    this.valuesTable = Object.values(this.formLabelMapInput);
+  }
+
+  export(): void {
+    this.exportToExcel(this.tables);
+  }
+
+  save() {
     const formData = this.addressForm.value;
-    this.exportToExcel(formData);
+    this.tables.push(formData);
   }
 
   exportToExcel(data: any): void {
     console.log(data);
     const formExport = [];
-    for (const key in data) {
-      const fieldName =
-        this.formLabelMapInput[key as keyof typeof this.formLabelMapInput];
-      formExport.push([fieldName, data[key]]);
+    for (const item of data) {
+      for (const key in item) {
+        const fieldName =
+          this.formLabelMapInput[key as keyof typeof this.formLabelMapInput];
+        formExport.push([fieldName, item[key]]);
+      }
     }
 
     const worksheet = XLSX.utils.aoa_to_sheet(formExport);
