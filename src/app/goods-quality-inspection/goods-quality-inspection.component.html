@@ -2,98 +2,90 @@
   <section>
     <form class="m-4 w-[500px]" [formGroup]="formGroupName">
       <div class="flex items-center gap-4 mb-2">
-        <label class="w-[160px]" for="itemno">Item No:</label>
+        <label class="w-[160px]" for="productgroup">Nhóm hàng hóa:</label>
         <input
           type="text"
           class="input input-bordered w-full max-w-xs"
-          id="itemno"
-          formControlName="itemno"
+          id="productgroup"
+          formControlName="productgroup"
         />
       </div>
 
       <div class="flex items-center gap-4 mb-2">
-        <label class="w-[160px]" for="productname">Product Name:</label>
+        <label class="w-[160px]" for="hscode">Mã HS:</label>
         <input
           type="text"
           class="input input-bordered w-full max-w-xs"
+          id="hscode"
+          formControlName="hscode"
+        />
+      </div>
+
+      <div class="flex items-center gap-4 mb-2">
+        <label class="w-[160px]" for="productname">Tên hàng hóa:</label>
+        <textarea
+          class="textarea textarea-bordered w-full max-w-xs"
           id="productname"
           formControlName="productname"
-        />
-      </div>
-
-      <div class="flex items-center gap-4 mb-2">
-        <label class="w-[160px]" for="shipper">Shipper:</label>
-        <textarea
-          class="textarea textarea-bordered w-full max-w-xs"
-          id="shipper"
-          formControlName="shipper"
         ></textarea>
       </div>
 
       <div class="flex items-center gap-4 mb-2">
-        <label class="w-[160px]" for="shipperaddress">Address:</label>
+        <label class="w-[160px]" for="typesymbol">Ký hiệu kiểu loại:</label>
         <textarea
           class="textarea textarea-bordered w-full max-w-xs"
-          id="shipperaddress"
-          formControlName="shipperaddress"
+          id="typesymbol"
+          formControlName="typesymbol"
         ></textarea>
       </div>
 
       <div class="flex items-center gap-4 mb-2">
-        <label class="w-[160px]" for="consignee">Consignee:</label>
+        <label class="w-[160px]" for="specifications">Thông số kỹ thuật:</label>
         <textarea
           class="textarea textarea-bordered w-full max-w-xs"
-          id="consignee"
-          formControlName="consignee"
+          id="specifications"
+          formControlName="specifications"
         ></textarea>
       </div>
 
       <div class="flex items-center gap-4 mb-2">
-        <label class="w-[160px]" for="consigneeaddress">Address:</label>
+        <label class="w-[160px]" for="countryofmanufacture"
+          >Xuất xứ, nước sản xuất:</label
+        >
         <textarea
           class="textarea textarea-bordered w-full max-w-xs"
-          id="consigneeaddress"
-          formControlName="consigneeaddress"
+          id="countryofmanufacture"
+          formControlName="countryofmanufacture"
         ></textarea>
       </div>
 
       <div class="flex items-center gap-4 mb-2">
-        <label class="w-[160px]" for="origin">Origin:</label>
+        <label class="w-[160px]" for="producer">Nhà sản xuất:</label>
         <input
           type="text"
           class="input input-bordered w-full max-w-xs"
-          id="origin"
-          formControlName="origin"
+          id="producer"
+          formControlName="producer"
         />
       </div>
 
       <div class="flex items-center gap-4 mb-2">
-        <label class="w-[160px]" for="qty_pkg">QTY/PKG:</label>
+        <label class="w-[160px]" for="quantity">Số lượng:</label>
         <input
           type="text"
           class="input input-bordered w-full max-w-xs"
-          id="qty_pkg"
-          formControlName="qty_pkg"
+          id="quantity"
+          formControlName="quantity"
         />
       </div>
 
       <div class="flex items-center gap-4 mb-2">
-        <label class="w-[160px]" for="g_w">G/W:</label>
+        <label class="w-[160px]" for="unit">Đơn vị:</label>
         <input
           type="text"
           class="input input-bordered w-full max-w-xs"
-          id="g_w"
-          formControlName="g_w"
-        />
-      </div>
-
-      <div class="flex items-center gap-4 mb-2">
-        <label class="w-[160px]" for="pkgsize">PKG Size:</label>
-        <input
-          type="text"
-          class="input input-bordered w-full max-w-xs"
-          id="pkgsize"
-          formControlName="pkgsize"
+          id="unit"
+          formControlName="unit"
         />
       </div>
 

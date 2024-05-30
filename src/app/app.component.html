@@ -1,3 +1,36 @@
-<app-address-form></app-address-form>
-
-<router-outlet />
+<div class="h-full">
+  <section>
+    <ul class="menu menu-vertical lg:menu-horizontal bg-base-200 w-full gap-2">
+      <li>
+        <a
+          routerLink="/address-form"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          class="active"
+          >Address</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/goods-form"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          class="active"
+          >Goods</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/goods-quality-inspection"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          class="active"
+          >Goods quality inspection</a
+        >
+      </li>
+    </ul>
+  </section>
+  <section>
+    <router-outlet />
+  </section>
+</div>
