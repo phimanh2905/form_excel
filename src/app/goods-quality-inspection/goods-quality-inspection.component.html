@@ -90,9 +90,7 @@
       </div>
 
       <div class="flex justify-center gap-2">
-        <button class="btn btn-outline btn-success" (click)="save()">
-          Lưu
-        </button>
+        <button class="btn btn-outline btn-info" (click)="save()">Lưu</button>
         <button
           class="btn btn-outline btn-success"
           type="submit"
@@ -100,13 +98,16 @@
         >
           Tạo file excel
         </button>
+        <button class="btn btn-outline btn-error" (click)="remove()">
+          Xóa bảng
+        </button>
       </div>
     </form>
   </section>
 
   <section>
     <div class="overflow-x-auto">
-      <table class="table">
+      <table class="table cursor-pointer">
         <thead>
           <tr>
             <th>No.</th>

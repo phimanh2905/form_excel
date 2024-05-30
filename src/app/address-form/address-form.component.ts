@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BaseComponent } from '../../share/base-component';
+import { LocalStorageService } from '../../share/service/local-storage.service';
 
 @Component({
   selector: 'app-address-form',
@@ -11,8 +12,11 @@ import { BaseComponent } from '../../share/base-component';
   styleUrl: './address-form.component.scss',
 })
 export class AddressFormComponent extends BaseComponent {
-  constructor(override fb: FormBuilder) {
-    super(fb);
+  constructor(
+    override fb: FormBuilder,
+    override localStorageService: LocalStorageService
+  ) {
+    super(fb, localStorageService);
     this.formGroupName = this.fb.group({
       itemno: [''],
       productname: [''],

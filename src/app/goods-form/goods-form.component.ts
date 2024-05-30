@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BaseComponent } from '../../share/base-component';
+import { LocalStorageService } from '../../share/service/local-storage.service';
 
 @Component({
   selector: 'app-goods-form',
@@ -12,8 +13,11 @@ import { BaseComponent } from '../../share/base-component';
   styleUrl: './goods-form.component.scss',
 })
 export class GoodsFormComponent extends BaseComponent {
-  constructor(override fb: FormBuilder) {
-    super(fb);
+  constructor(
+    override fb: FormBuilder,
+    override localStorageService: LocalStorageService
+  ) {
+    super(fb, localStorageService);
     this.formGroupName = this.fb.group({
       goodsname: [''],
       producer: [''],

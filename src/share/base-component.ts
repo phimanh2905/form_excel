@@ -1,6 +1,8 @@
-import { OnInit, OnDestroy, Component } from '@angular/core';
+import { OnInit, OnDestroy, Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import * as XLSX from 'xlsx';
+import { LocalStorageService } from './service/local-storage.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   template: '',
@@ -14,12 +16,24 @@ export class BaseComponent implements OnInit, OnDestroy {
 
   formGroupName!: FormGroup;
 
-  constructor(public fb: FormBuilder) {}
+  activatedRoute = inject(ActivatedRoute);
+  currentUrl = '';
+
+  constructor(
+    protected fb: FormBuilder,
+    protected localStorageService: LocalStorageService
+  ) {}
 
   ngOnInit(): void {
     this.getFormLabelMapInput();
     this.keysTable = Object.keys(this.formLabelMapInput);
     this.valuesTable = Object.values(this.formLabelMapInput);
+    this.currentUrl = this.activatedRoute.snapshot.url[0].path;
+
+    const tablesFromStorage = this.localStorageService.getItem(this.currentUrl);
+    if (tablesFromStorage) {
+      this.tables = tablesFromStorage;
+    }
   }
 
   ngOnDestroy(): void {
@@ -33,6 +47,12 @@ export class BaseComponent implements OnInit, OnDestroy {
   save() {
     const formData = this.formGroupName.value;
     this.tables.push(formData);
+    this.localStorageService.setItem(this.currentUrl, this.tables);
+  }
+
+  remove() {
+    this.tables = [];
+    this.localStorageService.removeItem(this.currentUrl);
   }
 
   exportToExcel(data: any): void {

@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { BaseComponent } from '../../share/base-component';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import * as XLSX from 'xlsx';
+import { LocalStorageService } from '../../share/service/local-storage.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-goods-quality-inspection',
@@ -12,8 +14,11 @@ import * as XLSX from 'xlsx';
   styleUrl: './goods-quality-inspection.component.scss',
 })
 export class GoodsQualityInspectionComponent extends BaseComponent {
-  constructor(override fb: FormBuilder) {
-    super(fb);
+  constructor(
+    override fb: FormBuilder,
+    override localStorageService: LocalStorageService
+  ) {
+    super(fb, localStorageService);
     this.formGroupName = this.fb.group({
       productgroup: [''],
       hscode: [''],
