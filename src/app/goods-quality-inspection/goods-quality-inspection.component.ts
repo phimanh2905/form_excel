@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BaseComponent } from '../../share/base-component';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-goods-quality-inspection',
@@ -42,5 +43,19 @@ export class GoodsQualityInspectionComponent extends BaseComponent {
 
   override getFileNameExport() {
     return 'GoodsQualityInspection.xlsx';
+  }
+
+  override customWorkSheet(data: any): XLSX.WorkSheet {
+    const formExport = [];
+    for (const item of data) {
+      let row: any = {};
+      for (const key in item) {
+        const fieldName =
+          this.formLabelMapInput[key as keyof typeof this.formLabelMapInput];
+        row[fieldName] = item[key];
+      }
+      formExport.push(row);
+    }
+    return XLSX.utils.json_to_sheet(formExport);
   }
 }

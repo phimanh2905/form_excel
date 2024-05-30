@@ -37,6 +37,13 @@ export class BaseComponent implements OnInit, OnDestroy {
 
   exportToExcel(data: any): void {
     console.log(data);
+
+    const worksheet = this.customWorkSheet(data);
+    const workbook = { Sheets: { data: worksheet }, SheetNames: ['data'] };
+    XLSX.writeFile(workbook, this.getFileNameExport());
+  }
+
+  customWorkSheet(data: any): XLSX.WorkSheet {
     const formExport = [];
     for (const item of data) {
       for (const key in item) {
@@ -45,10 +52,7 @@ export class BaseComponent implements OnInit, OnDestroy {
         formExport.push([fieldName, item[key]]);
       }
     }
-
-    const worksheet = XLSX.utils.aoa_to_sheet(formExport);
-    const workbook = { Sheets: { data: worksheet }, SheetNames: ['data'] };
-    XLSX.writeFile(workbook, this.getFileNameExport());
+    return XLSX.utils.aoa_to_sheet(formExport);
   }
 
   getFormLabelMapInput() {}
