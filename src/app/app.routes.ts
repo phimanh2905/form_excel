@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { AddressFormComponent } from './address-form/address-form.component';
 import { GoodsFormComponent } from './goods-form/goods-form.component';
 import { GoodsQualityInspectionComponent } from './goods-quality-inspection/goods-quality-inspection.component';
+import { ScrollGridComponent } from './scroll-grid/scroll-grid.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/address-form', pathMatch: 'full' },
@@ -10,5 +11,9 @@ export const routes: Routes = [
   {
     path: 'goods-quality-inspection',
     component: GoodsQualityInspectionComponent,
+  },
+  {
+    path: 'scroll',
+    component: ScrollGridComponent,
   },
 ];
