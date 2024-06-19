@@ -1,25 +1,32 @@
-body, html {
-  height: 100%;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.table-container {
-  overflow-x: auto;
-}
-
 table {
-  border-collapse: collapse; /* Or your preferred table styles */
+  // overflow-x: scroll;
+  /* Optional: Set a maximum table width */
+  max-width: 800px;
 }
 
-/* Example table styling */
-table, th, td {
+table,
+th,
+td {
   border: 1px solid black;
 }
 
-th, td {
-  padding: 10px;
-  text-align: left;
+.other-container {
+  border: 1px solid black;
+  height: 100px;
+  width: 100%;
+}
+
+.scroll-container {
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent content from wrapping */
+  position: relative; /* Establish positioning context */
+  height: calc(100vh - 52px);
+}
+
+.sticky-element {
+  position: sticky;
+  left: 0; /* Stick to the top of .scroll-container */
+  background-color: #f1f1f1; /* Example background color */
+  z-index: 100; /* Ensure it's above other content */
+  padding: 10px; /* Adjust padding as needed */
 }
