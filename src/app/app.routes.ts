@@ -12,8 +12,8 @@ export const routes: Routes = [
     path: 'goods-quality-inspection',
     component: GoodsQualityInspectionComponent,
   },
-  // {
-  //   path: 'scroll',
-  //   component: ScrollGridComponent,
-  // },
+  {
+    path: 'scroll',
+    component: ScrollGridComponent,
+  },
 ];
