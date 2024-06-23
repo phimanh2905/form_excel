@@ -5,7 +5,7 @@ import { GoodsQualityInspectionComponent } from './goods-quality-inspection/good
 import { ScrollGridComponent } from './scroll-grid/scroll-grid.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/scroll', pathMatch: 'full' },
+  { path: '', redirectTo: '/address-form', pathMatch: 'full' },
   { path: 'address-form', component: AddressFormComponent },
   { path: 'goods-form', component: GoodsFormComponent },
   {
