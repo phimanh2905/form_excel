@@ -30,3 +30,20 @@ td {
   z-index: 100; /* Ensure it's above other content */
   padding: 10px; /* Adjust padding as needed */
 }
+
+th:first-child,
+td:first-child {
+  position: sticky;
+  left: 0;
+  background-color: #f1f1f1; /* Example background color */
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+th,
+td {
+  white-space: nowrap;
+}
